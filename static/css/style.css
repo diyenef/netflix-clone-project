@@ -1,0 +1,527 @@
+:root {
+    --netflix-red: #e50914;
+    --dark-bg: #141414;
+    --text-white: #ffffff;
+    --gray: #808080;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-white);
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    padding: 25px 5%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--netflix-red);
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: -2px;
+}
+
+.signin-btn {
+    background-color: var(--netflix-red);
+    color: white;
+    padding: 7px 17px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.hero {
+    height: 100vh;
+    position: relative;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0.8) 100%), url('https://assets.nflxext.com/ffe/siteui/vlv3/729348c3-03ed-4da5-97f1-27ee3409825b/abb7b93c-623e-43e4-8da0-7c014f9d69e4/TR-en-20240304-popsignuptwoweeks-perspective_alpha_website_large.jpg') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 5%;
+    border-bottom: 8px solid #222;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.hero-content .subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.signup-form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.email-input {
+    flex-grow: 1;
+    padding: 15px 20px;
+    font-size: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    border-radius: 4px 0 0 4px;
+}
+
+.get-started-btn {
+    background-color: var(--netflix-red);
+    color: white;
+    border: none;
+    padding: 0 30px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.get-started-btn:hover {
+    background-color: #f6121d;
+}
+
+.movie-rows {
+    padding: 20px 5%;
+}
+
+.movie-rows h2 {
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 40px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.row::-webkit-scrollbar {
+    display: none;
+}
+
+.movie-card {
+    min-width: 250px;
+    height: 140px;
+    background-color: #333;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.movie-card.tall {
+    min-width: 180px;
+    height: 270px;
+}
+
+.movie-card:hover {
+    transform: scale(1.08);
+}
+
+footer {
+    padding: 40px 5%;
+    border-top: 1px solid #333;
+    text-align: center;
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+/* Auth Pages (Signup/Login) Styling */
+.auth-section {
+    height: 100vh;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://assets.nflxext.com/ffe/siteui/vlv3/729348c3-03ed-4da5-97f1-27ee3409825b/abb7b93c-623e-43e4-8da0-7c014f9d69e4/TR-en-20240304-popsignuptwoweeks-perspective_alpha_website_large.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-box {
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 60px 68px 40px;
+    width: 100%;
+    max-width: 450px;
+    border-radius: 4px;
+}
+
+.auth-box h1 {
+    font-size: 2rem;
+    margin-bottom: 28px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #333;
+    border: 1px solid #333;
+    border-radius: 4px;
+    color: white;
+    font-size: 1rem;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #444;
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 16px;
+    background-color: var(--netflix-red);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 24px;
+    cursor: pointer;
+}
+
+.auth-btn:hover {
+    background-color: #f6121d;
+}
+
+.auth-footer {
+    margin-top: 30px;
+    color: var(--gray);
+}
+
+.auth-footer a {
+    color: white;
+    text-decoration: none;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+.help-text {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.75rem;
+    color: var(--gray);
+}
+
+.error-msg {
+    color: #e87c03;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+/* Browse Dashboard Styling */
+.browse-body {
+    background-color: #000;
+    overflow-x: hidden;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 100vh;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 0;
+    z-index: 1000;
+    border-right: 1px solid #111;
+    transition: width 0.3s;
+    overflow: hidden;
+}
+
+.sidebar:hover {
+    width: 200px;
+}
+
+.sidebar-top,
+.sidebar-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    width: 100%;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.sidebar-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-item i {
+    font-size: 1.2rem;
+    color: #808080;
+    min-width: 24px;
+    text-align: center;
+    transition: color 0.3s;
+}
+
+.sidebar-item:hover i,
+.sidebar-item.active i {
+    color: #fff;
+}
+
+.sidebar-item.active {
+    border-left: 3px solid var(--netflix-red);
+}
+
+.sidebar-label {
+    margin-left: 20px;
+    color: #808080;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.sidebar:hover .sidebar-label {
+    opacity: 1;
+}
+
+.sidebar-item.active .sidebar-label {
+    color: #fff;
+    font-weight: bold;
+}
+
+.sidebar i.icon-logo {
+    color: var(--netflix-red);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.browse-main {
+    margin-left: 60px;
+    transition: margin-left 0.3s;
+}
+
+.sidebar:hover~.browse-main {
+    margin-left: 200px;
+}
+
+.browse-hero {
+    height: 85vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    position: relative;
+}
+
+.hero-details {
+    max-width: 600px;
+    z-index: 2;
+}
+
+.series-tag {
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    font-weight: bold;
+    color: #aaa;
+    margin-bottom: 10px;
+}
+
+.n-logo {
+    color: var(--netflix-red);
+    font-weight: 900;
+}
+
+.movie-logo-img {
+    max-width: 400px;
+    height: auto;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.movie-logo-text {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+}
+
+.meta-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.imdb-tag {
+    background-color: #f5c518;
+    color: #000;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.streams {
+    color: #46d369;
+    font-weight: bold;
+}
+
+.description {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #ddd;
+    line-height: 1.4;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 15px;
+}
+
+.play-btn {
+    padding: 12px 30px;
+    background-color: var(--netflix-red);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.trailer-btn {
+    padding: 12px 30px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.content-container {
+    padding: 20px 0 50px 0;
+    margin-top: -100px;
+    position: relative;
+    z-index: 10;
+}
+
+.category-row {
+    margin-bottom: 40px;
+    padding-left: 5%;
+}
+
+.category-row h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.movie-slider {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 20px 0;
+}
+
+.movie-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.movie-item {
+    min-width: 200px;
+    height: 300px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.movie-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.movie-item:hover {
+    transform: scale(1.1);
+    z-index: 100;
+}
+
+.movie-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+    text-align: center;
+}
+
+.movie-item:hover .movie-title {
+    opacity: 1;
+}

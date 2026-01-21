@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse - Netflix Clone</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="browse-body">
+    <div class="sidebar">
+        <div class="sidebar-top">
+            <div class="sidebar-item"><i class="fa-solid fa-n icon-logo"></i></div>
+            <div class="sidebar-item"><i class="fa-solid fa-magnifying-glass"></i><span class="sidebar-label">Search</span></div>
+            <div class="sidebar-item active"><i class="fa-solid fa-house"></i><span class="sidebar-label">Home</span></div>
+            <div class="sidebar-item"><i class="fa-solid fa-clapperboard"></i><span class="sidebar-label">Movies</span></div>
+            <div class="sidebar-item"><i class="fa-solid fa-tv"></i><span class="sidebar-label">TV Shows</span></div>
+            <div class="sidebar-item"><i class="fa-solid fa-arrow-trend-up"></i><span class="sidebar-label">Trending</span></div>
+            <div class="sidebar-item"><i class="fa-solid fa-plus"></i><span class="sidebar-label">My List</span></div>
+        </div>
+        <div class="sidebar-bottom">
+            <div class="sidebar-item"><i class="fa-solid fa-shuffle"></i><span class="sidebar-label">Shuffle</span></div>
+        </div>
+    </div>
+
+    <main class="browse-main">
+        {% if hero_movie %}
+        <section class="browse-hero" style="background-image: linear-gradient(to right, rgba(0,0,0,0.9) 20%, rgba(0,0,0,0.1) 60%), url('{{ hero_movie.backdrop }}');">
+            <div class="hero-details">
+                <div class="series-tag">
+                    <span class="n-logo">N</span> SERIES
+                </div>
+                {% if hero_movie.logo %}
+                <img src="{{ hero_movie.logo }}" alt="{{ hero_movie.title }}" class="movie-logo-img">
+                {% else %}
+                <h1 class="movie-logo-text">{{ hero_movie.title }}</h1>
+                {% endif %}
+                <div class="meta-info">
+                    <span class="imdb-tag">IMDb</span>
+                    <span class="rating">{{ hero_movie.rating }}</span>
+                    <span class="streams">{{ hero_movie.view_count }}</span>
+                </div>
+                <p class="description">{{ hero_movie.description }}</p>
+                <div class="hero-btns">
+                    <button class="play-btn"><i class="fa-solid fa-play"></i> Play</button>
+                    <button class="trailer-btn">Watch Trailer</button>
+                </div>
+            </div>
+        </section>
+        {% endif %}
+
+        <div class="content-container">
+            {% for row in content_rows %}
+            <section class="category-row">
+                <h2>{{ row.title }}</h2>
+                <div class="movie-slider">
+                    {% for movie in row.movies %}
+                    <div class="movie-item">
+                        <img src="{{ movie.poster }}" alt="{{ movie.title }}">
+                        <div class="movie-title">{{ movie.title }}</div>
+                    </div>
+                    {% endfor %}
+                    <div class="slider-arrow right">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                </div>
+            </section>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+</html>

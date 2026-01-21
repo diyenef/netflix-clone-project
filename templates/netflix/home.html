@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1>Unlimited movies, TV shows and more.</h1>
+        <p>Watch anywhere. Cancel anytime.</p>
+        <p class="subtitle">Ready to watch? Enter your email to create or restart your membership.</p>
+        <form action="{% url 'signup' %}" method="GET" class="signup-form">
+            <input type="email" name="email" placeholder="Email address" class="email-input" required>
+            <button type="submit" class="get-started-btn">
+                GET STARTED <span>&gt;</span>
+            </button>
+        </form>
+    </div>
+</section>
+
+<section class="movie-rows">
+    <h2>Trending Now</h2>
+    <div class="row">
+        {% for movie in trending_movies %}
+        <div class="movie-card">
+            <img src="{{ movie.backdrop|default:movie.poster }}" alt="{{ movie.title }}" style="width:100%; height:100%; object-fit:cover; border-radius:4px;">
+        </div>
+        {% empty %}
+        <div class="movie-card">No movies available</div>
+        {% endfor %}
+    </div>
+
+    <h2>New this week</h2>
+    <div class="row">
+        {% for movie in new_movies %}
+        <div class="movie-card tall">
+            <img src="{{ movie.poster }}" alt="{{ movie.title }}" style="width:100%; height:100%; object-fit:cover; border-radius:4px;">
+        </div>
+        {% empty %}
+        <div class="movie-card tall">No movies available</div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

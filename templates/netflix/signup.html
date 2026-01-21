@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="auth-section">
+    <div class="auth-box">
+        <h1>Sign Up</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {% if field.help_text %}
+                        <small class="help-text">{{ field.help_text }}</small>
+                    {% endif %}
+                    {% for error in field.errors %}
+                        <p class="error-msg">{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            <button type="submit" class="auth-btn">Sign Up</button>
+        </form>
+        <p class="auth-footer">Already have an account? <a href="/login">Sign In</a></p>
+    </div>
+</section>
+{% endblock %}

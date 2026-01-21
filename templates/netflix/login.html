@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="auth-section">
+    <div class="auth-box">
+        <h1>Sign In</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {% for error in field.errors %}
+                        <p class="error-msg">{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            <button type="submit" class="auth-btn">Sign In</button>
+        </form>
+        <p class="auth-footer">New to Netflix? <a href="{% url 'home' %}">Sign up now</a></p>
+    </div>
+</section>
+{% endblock %}
